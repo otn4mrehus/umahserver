@@ -12,6 +12,8 @@ services:
       - USERNAME=samba          # Username yang sama untuk WebDAV dan Samba
       - PASSWORD=1         # Password yang sama untuk WebDAV dan Samba
     restart: unless-stopped
+    mem_limit: 64m               # Membatasi memori hanya 64MB
+    cpus: 0.2                    # Membatasi penggunaan CPU hanya 20% dari satu core
     networks:
       - webdav
 
@@ -27,6 +29,8 @@ services:
     volumes:
       - ~/hardisk/data:/storage  # Direktori yang sama untuk WebDAV dan Samba
     restart: always
+    mem_limit: 64m               # Membatasi memori hanya 64MB
+    cpus: 0.2                    # Membatasi penggunaan CPU hanya 20% dari satu core
     networks:
       - samba-net
 
