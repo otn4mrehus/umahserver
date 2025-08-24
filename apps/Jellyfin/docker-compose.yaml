@@ -1,0 +1,23 @@
+version: "3"
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Asia/Jakarta
+
+    volumes:
+      - /data/docker/jellyfin:/config
+      - /data/download/series:/data/tvshows
+      - /data/download/movies:/data/movies
+    ports:
+      - 10002:8096
+    restart: always
+    networks:
+      - cloudflarednetwork
+
+networks:
+  cloudflarednetwork:
+    external: true
