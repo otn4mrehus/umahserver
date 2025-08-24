@@ -1,0 +1,21 @@
+version: '3'
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    ports:
+      - '10001:80'
+    volumes:
+      - '/data:/srv' ### Ganti '/srv' dengan direktori host server 
+      - '/data/docker/filebrowser/filebrowser.db:/database/filebrowser.db'
+      - '/data/docker/filebrowser/settings.json:/config/settings.json'
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Asia/Jakarta
+    restart: always
+    networks:
+      - cloudflarednetwork
+
+networks:
+  cloudflarednetwork:
+    external: true
