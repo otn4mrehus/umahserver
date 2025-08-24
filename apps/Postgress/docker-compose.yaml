@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      TZ: Asia/Jakarta
+      #POSTGRES_PASSWORD: "Apple@01/24"
+      POSTGRES_PASSWORD: "123"
+    volumes:
+      - /data/docker/postgres:/var/lib/postgresql/data
+    networks:
+      - labnetwork
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8083:8080"
+    networks:
+      - cloudflarednetwork
+
+networks:
+  cloudflarednetwork:
+    external: true
