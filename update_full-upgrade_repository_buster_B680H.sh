@@ -29,6 +29,6 @@ echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-vali
 
 # Update & upgrade
 apt update -y
-apt upgrade -y
+apt full-upgrade -y
 
 echo "== SELESAI =="
