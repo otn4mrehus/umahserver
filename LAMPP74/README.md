@@ -1,13 +1,13 @@
 # LAMPP
 ## Struktur Lampp
 ````
++database
 + docker
   |- .env
   |- docker-compose.yaml
   |- Dockerfile
   |- php.ini
 +web
-+database
 ````
 ## Install
 ````
